@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+Route::get('/sign-up', function () {
+    return view('signUp');
+});
+Route::get('/forgot-password', function () {
+    return view('forgotPassword');
+});
+Route::get('/contact-us', function () {
+    return view('contact');
+});
+// Route::get('/forgot-password', [UserController::class, 'index']);
+
+Route::get('/{any}', function () {
+    return view('notFound');
+})->where('any', '.*');
